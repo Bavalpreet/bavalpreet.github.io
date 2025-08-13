@@ -2,61 +2,56 @@
 layout: default
 title: Home
 ---
+{% assign p = site.data.profile %}
 
 <section class="hero card">
   <div>
-    <h1 class="h1">Hi, I'm <span class="mono">Bavalpreet</span> 👋</h1>
-    <p>Data Scientist & AI/ML Consultant in Toronto. I design, ship, and scale production-grade ML and GenAI systems.</p>
+    <h1 class="h1">Hi, I'm <span class="mono">{{ p.name }}</span> 👋</h1>
+    <p>{{ p.headline }}</p>
+    <p class="mono">{{ p.location }}</p>
     <div>
-      <span class="badge">GenAI</span>
-      <span class="badge">RAG</span>
-      <span class="badge">LLM Evaluation</span>
-      <span class="badge">Data Platforms</span>
-      <span class="badge">MLOps</span>
+      {% for s in p.skills limit:6 %}
+        <span class="badge">{{ s }}</span>
+      {% endfor %}
     </div>
   </div>
   <div>
     <div class="card">
-      <p><strong>Now:</strong> Consulting on data & AI projects. Open to collaborations.</p>
-      <p><strong>Contact:</strong> <a href="mailto:scientist.bavalpreet@gmail.com">scientist.bavalpreet@gmail.com</a> ·
-      <a href="https://www.linkedin.com/in/bavalpreet-singh" target="_blank">LinkedIn</a> ·
-      <a href="https://github.com/Bavalpreet" target="_blank">GitHub</a></p>
+      <p>{{ p.about }}</p>
+      <p><strong>Contact:</strong>
+        <a href="mailto:{{ p.email }}">{{ p.email }}</a> ·
+        <a href="{{ p.linkedin }}" target="_blank">LinkedIn</a> ·
+        <a href="{{ p.github }}" target="_blank">GitHub</a></p>
     </div>
   </div>
 </section>
 
 <div class="card">
-  <h2 class="h2">Enterprise Impact</h2>
+  <h2 class="h2">Highlights</h2>
   <ul>
-    <li>Reduced recruitment turnaround by 65% with a zero‑trust RAG system.</li>
-    <li>Optimized ML pipelines (Databricks + PySpark) by 31%.</li>
-    <li>Built text-to-SQL assistants and domain chatbots that moved real metrics.</li>
+    {% for h in p.highlights %}
+      <li>{{ h }}</li>
+    {% endfor %}
   </ul>
 </div>
 
 <div class="grid">
+  {% for project in site.projects %}
   <div class="card">
-    <h3 class="h2">Featured Project — Resume‑to‑ResumeRAG</h3>
-    <p>Production GenAI system using fine-tuned LLMs and retrieval with guardrails. Deployed on AWS ECS.</p>
-    <p class="mono">Tech: PyTorch · LangChain · Docker · AWS</p>
+    <h3 class="h2">{{ project.title }}</h3>
+    <p>{{ project.summary }}</p>
+    {% if project.tags %}<p class="mono">{{ project.tags | join: " · " }}</p>{% endif %}
+    {% if project.repo %}<p><a href="{{ project.repo }}" target="_blank">GitHub →</a></p>{% endif %}
   </div>
-  <div class="card">
-    <h3 class="h2">Zero‑Trust RAG</h3>
-    <p>Semantic matching with secrets isolation via Azure Key Vault and role‑aware retrieval.</p>
-    <p class="mono">Tech: Azure · Python · Security</p>
-  </div>
-</div>
-
-<div class="card">
-  <h2 class="h2">Stack</h2>
-  <p class="mono">LLMs: Transformers, LlamaIndex, LangChain · Infra: Docker, Terraform, GitHub Actions · Data: Databricks, PySpark</p>
+  {% endfor %}
 </div>
 
 <div class="card">
   <h2 class="h2">Latest Posts</h2>
   <ul>
   {% for post in site.posts limit:4 %}
-    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="badge">{{ post.date | date: "%b %d, %Y" }}</span></li>
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="badge">{{ post.date | date: "%b %d, %Y" }}</span></li>
   {% endfor %}
   </ul>
   <p><a href="{{ '/posts.html' | relative_url }}">More posts →</a></p>

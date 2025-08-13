@@ -1,8 +1,9 @@
 title: "Bavalpreet Singh"
-description: "Data Scientist & AI/ML Consultant"
+description: "Data Scientist & AI/ML Engineer — Conversational AI, GenAI, and NLP"
 url: "https://bavalpreet.github.io"
 baseurl: ""
 markdown: kramdown
 timezone: America/Toronto
-# If you want to use GitHub's minima theme instead of the custom layout, uncomment:
-# theme: minima
+collections:
+  projects:
+    output: true

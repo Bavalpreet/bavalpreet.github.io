@@ -12,6 +12,9 @@
       <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav>
         <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/experience/' | relative_url }}">Experience</a>
+        <a href="{{ '/projects/' | relative_url }}">Projects</a>
+        <a href="{{ '/publications/' | relative_url }}">Publications</a>
         <a href="{{ '/posts.html' | relative_url }}">Posts</a>
       </nav>
     </header>
@@ -19,7 +22,7 @@
       {{ content }}
     </main>
     <footer class="site-footer">
-      <p>© {{ "now" | date: "%Y" }} {{ site.title }} · Built with Jekyll & GitHub Pages</p>
+      <p>© {{ "now" | date: "%Y" }} {{ site.title }}</p>
     </footer>
   </body>
 </html>

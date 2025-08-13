@@ -1,0 +1,134 @@
+name: Bavalpreet Singh
+headline: Data Scientist & AI/ML Engineer | Conversational AI, GenAI, NLP
+location: Toronto, Ontario, Canada
+email: scientist.bavalpreet@gmail.com
+linkedin: https://www.linkedin.com/in/bavalpreet-singh
+github: https://github.com/Bavalpreet
+about: AI professional focused on solving real problems with Machine Learning and
+  Generative AI. Led impactful projects including AI chatbots for US local governments
+  (43% staffing cost reduction, 39% profit increase). Passionate mentor and educator;
+  published in Conversational AI and NER.
+highlights:
+- "Delivered AI chatbots for US local governments \u2192 43% staffing cost reduction\
+  \ & 39% profit increase."
+- "Trained 1,200+ learners via Intel Digital Readiness \u2192 35% higher tech readiness."
+- "Built multilingual AgriBot for Punjab farmers \u2192 reduced reliance on Kissan\
+  \ call center by 67%."
+- "Developed NER for Boat industry \u2192 83% entity accuracy."
+- Improved ETL efficiency by 10% using optimized pipelines.
+skills:
+- GenAI & RAG
+- NLP & NER
+- Multi-Agent Systems
+- Azure AI Search
+- OpenSearch
+- "Databricks \xB7 PySpark"
+- "AWS \xB7 GCP"
+- Rasa
+- PyTorch
+- BeautifulSoup
+- Selenium
+certifications:
+- "AWS Certified Machine Learning \u2013 Specialty (MLS-C01)"
+- Intro to Machine Learning
+- Dataiku ML Practitioner
+- 'Google Cloud Platform Fundamentals: Core Infrastructure'
+awards:
+- Employee of the Month
+- Certificate of Appreciation
+- Certificate of Merit
+publications:
+- title: 'DeepSpacy-NER: an efficient deep learning model for named entity recognition
+    for Punjabi language'
+  link: '#'
+- title: Custom NLU components in Rasa 3.x
+  link: '#'
+- title: Providing Suggestions To Users Along With Original Intent Answer
+  link: '#'
+- title: Fallback Policy In Rasa
+  link: '#'
+experience:
+- company: CloudCosmos
+  role: Consultant Data Scientist and AI ML Engineer
+  date: "Aug 2024 \u2013 Present"
+  location: Charlotte, NC (Remote)
+  bullets:
+  - Working on GenAI Initiative for Ryan.
+- company: Humber College
+  role: Researcher
+  date: "Sep 2024 \u2013 Dec 2024"
+  location: Toronto, ON
+  bullets:
+  - NSERC-funded applied research on employability for international learners.
+- company: Jain (Deemed-to-be) University
+  role: Visiting Faculty
+  date: "Jul 2024 \u2013 Nov 2024"
+  location: ''
+  bullets:
+  - Lecturer for Machine Learning and Advanced Machine Learning.
+- company: Sustainable Living Lab (SL2)
+  role: Consultant
+  date: "Aug 2023 \u2013 Jul 2024"
+  location: Singapore
+  bullets:
+  - Upgraded Intel Digital Readiness courses to include Generative AI.
+  - Designed AI programs for US community colleges; enabled 1,200+ learners; 35% boost
+    in readiness.
+  - Supported 150+ learners in Intel SIP program; +21% employment opportunities.
+- company: Tatras Data
+  role: Data Scientist
+  date: "Jan 2023 \u2013 Aug 2023"
+  location: SAS Nagar, Punjab
+  bullets:
+  - 'Led AI chatbots for US local government: 43% staffing reduction; 39% profit increase.'
+- company: Tatras Data
+  role: Jr. Data Scientist
+  date: "Jul 2020 \u2013 Jan 2023"
+  location: Delhi, India
+  bullets:
+  - 'Led conversational AI for farmers (Punjabi/English): 67% lower reliance on Kissan
+    call center.'
+  - "RASA chatbot for IDP (India Data Portal) \u2192 21% training cost savings."
+  - Built summarization & keyphrase extraction; 10% ETL efficiency gain for public-sector
+    market data.
+  - "Custom NER for Boat industry \u2192 83% accuracy; web scraping with BeautifulSoup/Selenium;\
+    \ data annotation with Doccano."
+- company: Sabudh Foundation
+  role: Line Manager
+  date: "Jan 2022 \u2013 Jun 2023"
+  location: SAS Nagar, Punjab
+  bullets:
+  - Led AgriBot development using PAU Package of Practices; multilingual support for
+    Punjabi farmers.
+- company: Sabudh Foundation
+  role: Data Science Faculty
+  date: "Jul 2020 \u2013 Jan 2021"
+  location: SAS Nagar, Punjab
+  bullets:
+  - Taught Machine Learning and NLP.
+- company: BML Munjal University
+  role: Visiting Faculty
+  date: "Jul 2020 \u2013 Dec 2020"
+  location: ''
+  bullets:
+  - Instructor for Basics of ML; guided student passion projects.
+- company: Sabudh Foundation
+  role: Data Science Intern
+  date: "Jan 2020 \u2013 Jun 2020"
+  location: Mohali, Punjab
+  bullets:
+  - UNet-based image segmentation for road scenes.
+  - Tweet sentiment classifier; toxic comment classification (Kaggle).
+- company: Eduwaive Foundation
+  role: Apprentice (Applied ML & Data Analytics)
+  date: "Sep 2019 \u2013 Oct 2019"
+  location: Chandigarh
+  bullets:
+  - EDA on NYC Airbnb; sales analytics; insurance data labeling.
+education:
+- school: Humber College
+  program: Artificial Intelligence with Machine Learning (Honors)
+  date: "Sep 2023 \u2013 Apr 2024"
+- school: Punjabi University
+  program: B.Tech, Computer Science and Engineering
+  date: "2016 \u2013 2020"

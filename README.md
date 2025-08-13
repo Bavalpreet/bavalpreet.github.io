@@ -1,25 +1,14 @@
-# bavalpreet.github.io (Starter)
+# bavalpreet.github.io — Fresh Start
 
-A minimal GitHub Pages + Jekyll portfolio, styled similar to the reference you shared.
+This is a fully-filled GitHub Pages (Jekyll) portfolio. Edit only `_data/profile.yml` to update content site‑wide.
 
-## Quick start
-1. Create a new public repo named **bavalpreet.github.io** on your GitHub account.
-2. Upload the contents of this folder to that repo (drag & drop on GitHub is fine).
-3. Go to the repo **Settings → Pages** and ensure Source is set to **Deploy from a branch: main /(root)**.
-4. Wait a minute; your site will be live at https://bavalpreet.github.io
+## Publish
+1) Create a public repo named **bavalpreet.github.io**.
+2) Upload all files in this folder to the repo root.
+3) Settings → Pages → Source: Deploy from a branch → `main` / (root).
+Your site will appear at https://bavalpreet.github.io
 
-## Editing
-- Home content: `index.html`
-- Blog list: `posts.html`
-- Styles: `assets/css/style.css`
-- Layout wrapper: `_layouts/default.html`
-- Config (title, description, URL): `_config.yml`
-- Blog posts go under `_posts/YYYY-MM-DD-title.md` with front matter.
-
-## Local preview (optional)
-If you have Ruby:
-```bash
-gem install bundler jekyll
-jekyll serve
-```
-Open http://127.0.0.1:4000
+## Customize
+- Home/Experience/Projects pull from `_data/profile.yml` and `_projects/`.
+- Add posts under `_posts/YYYY-MM-DD-title.md`.
+- Style is in `assets/css/style.css`.
