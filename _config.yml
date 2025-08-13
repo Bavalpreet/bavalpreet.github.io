@@ -1,0 +1,8 @@
+title: "Bavalpreet Singh"
+description: "Data Scientist & AI/ML Consultant"
+url: "https://bavalpreet.github.io"
+baseurl: ""
+markdown: kramdown
+timezone: America/Toronto
+# If you want to use GitHub's minima theme instead of the custom layout, uncomment:
+# theme: minima

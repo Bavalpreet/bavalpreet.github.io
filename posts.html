@@ -1,0 +1,14 @@
+---
+layout: default
+title: Posts
+---
+<h1 class="h1">Posts</h1>
+<div class="hr"></div>
+<ul>
+  {% for post in site.posts %}
+    <li style="margin:10px 0">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="badge">{{ post.date | date: "%b %d, %Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>
