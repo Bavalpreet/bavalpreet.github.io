@@ -1,6 +1,6 @@
 # bavalpreet.github.io — Fresh Start
 
-This is a fully-filled GitHub Pages (Jekyll) portfolio. Edit only `_data/profile.yml` to update content site‑wide.
+This is a fully-filled GitHub Pages (Jekyll) portfolio. Edit `_data/profile.yml` for profile content; add or modify entries under `_posts/` and `_projects/` for posts and project pages.
 
 ## Publish
 1) Create a public repo named **bavalpreet.github.io**.
