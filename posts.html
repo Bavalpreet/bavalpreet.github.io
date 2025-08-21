@@ -12,3 +12,20 @@ title: Posts
     </li>
   {% endfor %}
 </ul>
+
+<h2 class="h2">Medium Posts</h2>
+<ul id="medium-posts"></ul>
+<script>
+fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@bavalpreet')
+  .then(r => r.json())
+  .then(data => {
+    const posts = data.items.filter(item => item.categories.length > 0).slice(0,5);
+    const container = document.getElementById('medium-posts');
+    posts.forEach(post => {
+      const li = document.createElement('li');
+      const date = new Date(post.pubDate).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+      li.innerHTML = `<a href="${post.link}" target="_blank">${post.title}</a> <span class="badge">${date}</span>`;
+      container.appendChild(li);
+    });
+  });
+</script>
