@@ -102,8 +102,14 @@ nav a:hover::after {
   padding: 20px;
   margin: 14px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: background 0.3s ease, border-color 0.3s ease;
-  animation: fadeInUp 0.6s ease both;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: background 0.3s ease, border-color 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .grid {
@@ -269,5 +275,39 @@ kbd {
   font-weight: 700;
   margin-right: 12px;
   border: 1px solid var(--border);
+}
+
+/* Mobile navigation */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  nav.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .site-header {
+    position: relative;
+  }
 }
 
