@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       const cached = localStorage.getItem('activity');
       activityEl.textContent = cached || '--';
+      if (cached) activityEl.textContent = cached;
     }
   };
 
@@ -137,6 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       const cached = localStorage.getItem('blog-count');
       blogEl.textContent = cached || '--';
+      if (gs && gpuEl) gpuEl.textContent = gs;
+      const mem = localStorage.getItem('memory');
+      if (mem && memoryEl) memoryEl.textContent = mem;
+      const tr = localStorage.getItem('training');
+      if (tr && trainingEl) trainingEl.textContent = tr;
     }
   };
 

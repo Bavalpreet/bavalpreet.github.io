@@ -25,6 +25,10 @@ To display live GPU and memory information on the home page, first install the P
 
 ```bash
 pip install flask psutil
+```
+To display live GPU and memory information on the home page, run the helper API before starting Jekyll:
+
+```bash
 python scripts/env_server.py
 ```
 
