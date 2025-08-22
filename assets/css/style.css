@@ -219,3 +219,55 @@ kbd {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+.social-links a {
+  margin-right: 12px;
+}
+
+.stats {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.stat {
+  text-align: center;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--badge-bg);
+}
+
+.stat h3 {
+  margin: 0;
+}
+
+.stat p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.role-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.role-tile {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--badge-bg);
+}
+
+.role-tile .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 12px;
+  border: 1px solid var(--border);
+}
+
