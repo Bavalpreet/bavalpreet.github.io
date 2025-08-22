@@ -132,3 +132,16 @@ education:
 - school: Punjabi University
   program: B.Tech, Computer Science and Engineering
   date: "2016 \u2013 2020"
+volunteer:
+- company: Data Science for All
+  role: Mentor
+  date: "2022 \u2013 Present"
+  location: Remote
+  bullets:
+  - Support aspiring data scientists through project mentorship.
+- company: Local Community Hackathon
+  role: Volunteer
+  date: "2021 \u2013 2022"
+  location: Toronto, ON
+  bullets:
+  - Organized AI workshops for community participants.
