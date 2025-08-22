@@ -23,20 +23,24 @@ title: Home
   <h2 class="h2">Development Environment</h2>
   <div class="grid stats">
     <div class="stat">
-      <h3 class="h1">{{ env.gpu_status }}</h3>
+      <h3 class="h1" id="gpu-status">{{ env.gpu_status }}</h3>
       <p class="mono">GPU Status</p>
     </div>
     <div class="stat">
-      <h3 class="h1">{{ env.memory }}</h3>
+      <h3 class="h1" id="memory">{{ env.memory }}</h3>
       <p class="mono">System RAM</p>
     </div>
     <div class="stat">
-      <h3 class="h1">{{ env.activity }}</h3>
+      <h3 class="h1" id="activity">{{ env.activity }}</h3>
       <p class="mono">Last 24h</p>
     </div>
     <div class="stat">
-      <h3 class="h1">{{ env.training }}</h3>
+      <h3 class="h1" id="training">{{ env.training }}</h3>
       <p class="mono">Current Project</p>
+    </div>
+    <div class="stat">
+      <h3 class="h1" id="blog-count">{{ env.blogs }}</h3>
+      <p class="mono">Medium Blogs</p>
     </div>
   </div>
 </section>

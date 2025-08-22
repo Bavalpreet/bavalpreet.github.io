@@ -20,6 +20,21 @@ This repository contains the source code for my personal website built with [Jek
    ```
 4. Visit `http://localhost:4000` in your browser to preview changes.
 
+## Environment Stats (optional)
+To display live GPU and memory information on the home page, first install the Python dependencies and run the helper API before starting Jekyll:
+
+```bash
+pip install flask psutil
+python scripts/env_server.py
+```
+
+The site will request `http://localhost:8001/system/stats` for GPU temperature, available RAM, and training progress. Commit activity is fetched directly from the GitHub API when the page loads.
+
+By default the home page shows placeholders (`--`). Once the helper API is running and the page reloads, the tiles will update with live numbers.
+
+### Medium blog count
+The home page also displays how many blogs are published on Medium. No setup is required—on each page load the script calls Medium's RSS feed through `rss2json` and updates the tile with the current count.
+
 ## Deployment
 Pushing changes to the `main` branch will trigger GitHub Pages to rebuild and deploy the site at [https://bavalpreet.github.io](https://bavalpreet.github.io).
 
