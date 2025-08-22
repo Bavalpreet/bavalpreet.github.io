@@ -3,7 +3,8 @@
   --card: #ffffff;
   --text: #1f2937;
   --muted: #6b7280;
-  --accent: #3b82f6;
+  --accent: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
   --border: #e5e7eb;
   --badge-bg: #f3f4f6;
 }
@@ -13,7 +14,8 @@
   --card: #111827;
   --text: #f9fafb;
   --muted: #9ca3af;
-  --accent: #3b82f6;
+  --accent: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
   --border: #374151;
   --badge-bg: #1f2937;
 }
@@ -29,6 +31,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   transition: background 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -53,17 +56,43 @@ a {
   position: sticky;
   top: 0;
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .brand {
   font-weight: 700;
   font-size: 18px;
-  color: var(--text);
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 nav a {
   margin-left: 16px;
   color: var(--text);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 .card {
@@ -74,6 +103,7 @@ nav a {
   margin: 14px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: background 0.3s ease, border-color 0.3s ease;
+  animation: fadeInUp 0.6s ease both;
 }
 
 .grid {
@@ -112,10 +142,41 @@ nav a {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 18px;
   align-items: center;
+  animation: fadeInUp 0.8s ease both;
 }
 
 .hero.card {
   background: linear-gradient(135deg, var(--card), var(--badge-bg));
+}
+
+.actions {
+  margin-top: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 880px) {
