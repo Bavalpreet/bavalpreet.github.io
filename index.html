@@ -26,25 +26,27 @@ title: Home
   </div>
 </section>
 
-<div class="card">
-  <h2 class="h2">Highlights</h2>
-  <ul>
-    {% for h in p.highlights %}
-      <li>{{ h }}</li>
-    {% endfor %}
-  </ul>
-</div>
-
-<div class="grid">
-  {% for project in site.projects %}
   <div class="card">
-    <h3 class="h2">{{ project.title }}</h3>
-    <p>{{ project.summary }}</p>
-    {% if project.tags %}<p class="mono">{{ project.tags | join: " · " }}</p>{% endif %}
-    {% if project.repo %}<p><a href="{{ project.repo }}" target="_blank">GitHub →</a></p>{% endif %}
+    <h2 class="h2">Highlights</h2>
+    <ul>
+      {% for h in p.highlights %}
+        <li>{{ h }}</li>
+      {% endfor %}
+    </ul>
   </div>
-  {% endfor %}
-</div>
+
+  <div class="card">
+    <h2 class="h2">Roles &amp; Institutions</h2>
+    <ul>
+      {% for e in p.experience limit:4 %}
+        <li><strong>{{ e.role }}</strong> — {{ e.company }}</li>
+      {% endfor %}
+      {% for v in p.volunteer limit:2 %}
+        <li><strong>{{ v.role }}</strong> — {{ v.company }}</li>
+      {% endfor %}
+    </ul>
+    <p><a href="{{ '/experience/' | relative_url }}">More roles →</a></p>
+  </div>
 
 <div class="card">
   <h2 class="h2">Publications</h2>
