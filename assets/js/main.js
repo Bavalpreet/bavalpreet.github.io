@@ -58,4 +58,71 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.card').forEach((card) => {
     observer.observe(card);
   });
+
+  // Live development environment stats
+  const gpuEl = document.getElementById('gpu-status');
+  const memoryEl = document.getElementById('memory');
+  const activityEl = document.getElementById('activity');
+  const trainingEl = document.getElementById('training');
+
+  const loadActivity = async () => {
+    if (!activityEl) return;
+    try {
+      const res = await fetch('https://api.github.com/users/bavalpreet/events');
+      if (!res.ok) throw new Error('network');
+      const events = await res.json();
+      const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+      let commits = 0;
+      for (const ev of events) {
+        if (ev.type === 'PushEvent' && new Date(ev.created_at).getTime() > cutoff) {
+          commits += ev.payload.commits.length;
+        }
+      }
+      activityEl.textContent = `${commits} commits`;
+      localStorage.setItem('activity', activityEl.textContent);
+    } catch (err) {
+      const cached = localStorage.getItem('activity');
+      if (cached) activityEl.textContent = cached;
+    }
+  };
+
+  const loadSystemStats = async () => {
+    if (!gpuEl || !memoryEl || !trainingEl) return;
+    try {
+      const res = await fetch('http://localhost:8001/system/stats');
+      if (!res.ok) throw new Error('network');
+      const data = await res.json();
+      if (data.gpu_status) {
+        gpuEl.textContent = data.gpu_status;
+        localStorage.setItem('gpu-status', data.gpu_status);
+      } else {
+        const cached = localStorage.getItem('gpu-status');
+        if (cached) gpuEl.textContent = cached;
+      }
+      if (data.memory) {
+        memoryEl.textContent = data.memory;
+        localStorage.setItem('memory', data.memory);
+      } else {
+        const cached = localStorage.getItem('memory');
+        if (cached) memoryEl.textContent = cached;
+      }
+      if (data.training) {
+        trainingEl.textContent = data.training;
+        localStorage.setItem('training', data.training);
+      } else {
+        const cached = localStorage.getItem('training');
+        if (cached) trainingEl.textContent = cached;
+      }
+    } catch (err) {
+      const gs = localStorage.getItem('gpu-status');
+      if (gs && gpuEl) gpuEl.textContent = gs;
+      const mem = localStorage.getItem('memory');
+      if (mem && memoryEl) memoryEl.textContent = mem;
+      const tr = localStorage.getItem('training');
+      if (tr && trainingEl) trainingEl.textContent = tr;
+    }
+  };
+
+  loadActivity();
+  loadSystemStats();
 });
