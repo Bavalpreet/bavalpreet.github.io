@@ -6,6 +6,8 @@ import platform
 import psutil
 import shutil
 import subprocess
+from typing import List
+
 
 
 app = Flask(__name__)
@@ -54,16 +56,61 @@ def gpu_temperature() -> str:
 
     return "N/A"
 
-
 @app.get("/system/stats")
 def system_stats():
     """Expose GPU status, available RAM and training progress."""
 
     memory = psutil.virtual_memory()
+def gpu_percent() -> float:
+    """Return GPU utilization percentage if available."""
+
+    if shutil.which("nvidia-smi"):
+        try:
+            output = subprocess.check_output(
+                [
+                    "nvidia-smi",
+                    "--query-gpu=utilization.gpu",
+                    "--format=csv,noheader,nounits",
+                ],
+                text=True,
+            )
+            return float(output.strip())
+        except Exception:
+            pass
+    return 0.0
+
+
+GPU_HISTORY: List[float] = []
+CPU_HISTORY: List[float] = []
+RAM_HISTORY: List[float] = []
+MAX_HISTORY = 20
+
+
+@app.get("/system/stats")
+def system_stats():
+    """Expose GPU status, available RAM and training progress with histories."""
+
+    memory = psutil.virtual_memory()
+    cpu = psutil.cpu_percent()
+    ram = memory.percent
+    gpu = gpu_percent()
+
+    for hist, value in (
+        (GPU_HISTORY, gpu),
+        (CPU_HISTORY, cpu),
+        (RAM_HISTORY, ram),
+    ):
+        hist.append(value)
+        if len(hist) > MAX_HISTORY:
+            hist.pop(0)
+
     data = {
         "gpu_status": gpu_temperature(),
         "memory": f"{memory.available / (1024 ** 3):.1f} GB",
         "training": os.getenv("TRAINING_PROGRESS", "N/A"),
+        "gpu": GPU_HISTORY,
+        "cpu": CPU_HISTORY,
+        "ram": RAM_HISTORY,
     }
     return jsonify(data)
 
