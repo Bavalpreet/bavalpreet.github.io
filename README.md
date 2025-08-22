@@ -12,3 +12,5 @@ Your site will appear at https://bavalpreet.github.io
 - Home/Experience/Projects pull from `_data/profile.yml` and `_projects/`.
 - Add posts under `_posts/YYYY-MM-DD-title.md`.
 - Style is in `assets/css/style.css`.
+- Update LinkedIn recommendations by running `scripts/fetch_linkedin_recommendations.py`
+  with `LINKEDIN_ACCESS_TOKEN` and `LINKEDIN_PROFILE_ID` environment variables.

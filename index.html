@@ -47,6 +47,27 @@ title: Home
 </div>
 
 <div class="card">
+  <h2 class="h2">Publications</h2>
+  <ul>
+  {% for pub in p.publications limit:3 %}
+    <li><a href="{{ pub.link }}">{{ pub.title }}</a></li>
+  {% endfor %}
+  </ul>
+  <p><a href="{{ '/publications/' | relative_url }}">More publications →</a></p>
+</div>
+
+<div class="card">
+  <h2 class="h2">Recommendations</h2>
+  {% for rec in site.data.recommendations limit:3 %}
+    <p><strong>{{ rec.author }}</strong> — {{ rec.role }}</p>
+    <p class="mono">{{ rec.date }}</p>
+    <p>{{ rec.text }}</p>
+    {% if forloop.last == false %}<div class="hr"></div>{% endif %}
+  {% endfor %}
+  <p><a href="{{ '/recommendations/' | relative_url }}">See all →</a></p>
+</div>
+
+<div class="card">
   <h2 class="h2">Latest Posts</h2>
   <ul>
   {% for post in site.posts limit:4 %}
