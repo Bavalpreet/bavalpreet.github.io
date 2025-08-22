@@ -10,6 +10,7 @@ Your site will appear at https://bavalpreet.github.io
 
 ## Customize
 - Home/Experience/Projects pull from `_data/profile.yml` and `_projects/`.
+- The Projects page (`/projects/`) showcases all data science and AI projects from `_projects/`.
 - Add posts under `_posts/YYYY-MM-DD-title.md`.
 - Style is in `assets/css/style.css`.
 - Update LinkedIn recommendations by running `scripts/fetch_linkedin_recommendations.py`
