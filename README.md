@@ -1,17 +1,27 @@
-# bavalpreet.github.io — Fresh Start
+# Bavalpreet Singh — Portfolio & Blog
 
-This is a fully-filled GitHub Pages (Jekyll) portfolio. Edit `_data/profile.yml` for profile content; add or modify entries under `_posts/` and `_projects/` for posts and project pages.
+This repository contains the source code for my personal website built with [Jekyll](https://jekyllrb.com/) and GitHub Pages. It presents my professional background, showcases selected projects, and hosts a growing collection of blogs.
 
-## Publish
-1) Create a public repo named **bavalpreet.github.io**.
-2) Upload all files in this folder to the repo root.
-3) Settings → Pages → Source: Deploy from a branch → `main` / (root).
-Your site will appear at https://bavalpreet.github.io
+## Site Structure
+- `_data/profile.yml` – core profile information used across pages
+- `_projects/` – markdown files for project entries
+- `_posts/` – markdown files for individual blogs
+- `blogs.html` – list of all blog posts
 
-## Customize
-- Home/Experience/Projects pull from `_data/profile.yml` and `_projects/`.
-- The Projects page (`/projects/`) showcases all data science and AI projects from `_projects/`.
-- Add posts under `_posts/YYYY-MM-DD-title.md`.
-- Style is in `assets/css/style.css`.
-- Update LinkedIn recommendations by running `scripts/fetch_linkedin_recommendations.py`
-  with `LINKEDIN_ACCESS_TOKEN` and `LINKEDIN_PROFILE_ID` environment variables.
+## Local Development
+1. Ensure you have Ruby and Bundler installed.
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
+3. Build and serve the site locally:
+   ```bash
+   bundle exec jekyll serve
+   ```
+4. Visit `http://localhost:4000` in your browser to preview changes.
+
+## Deployment
+Pushing changes to the `main` branch will trigger GitHub Pages to rebuild and deploy the site at [https://bavalpreet.github.io](https://bavalpreet.github.io).
+
+## Contributing
+Suggestions and improvements are welcome! Feel free to open an issue or submit a pull request.
