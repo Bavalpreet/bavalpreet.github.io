@@ -2,7 +2,9 @@
 
 from flask import Flask, jsonify
 import os
+import platform
 import psutil
+import shutil
 import subprocess
 
 
@@ -10,6 +12,46 @@ app = Flask(__name__)
 
 
 def gpu_temperature() -> str:
+    """Return a best-effort GPU temperature for the current machine."""
+
+    # Prefer NVIDIA GPUs when nvidia-smi is available
+    if shutil.which("nvidia-smi"):
+        try:
+            output = subprocess.check_output(
+                [
+                    "nvidia-smi",
+                    "--query-gpu=temperature.gpu",
+                    "--format=csv,noheader",
+                ],
+                text=True,
+            )
+            return f"{output.strip()}°C"
+        except Exception:
+            pass
+
+    # Try psutil's sensor API (may provide CPU temp on some systems)
+    try:
+        temps = psutil.sensors_temperatures()
+        for entries in temps.values():
+            if entries:
+                return f"{entries[0].current:.0f}°C"
+    except Exception:
+        pass
+
+    # Attempt macOS powermetrics for Apple Silicon machines
+    if platform.system() == "Darwin" and shutil.which("powermetrics"):
+        try:
+            output = subprocess.check_output(
+                ["powermetrics", "--samplers", "smc", "-n", "1"],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            )
+            for line in output.splitlines():
+                if "GPU die temperature" in line:
+                    return line.split(":")[1].strip()
+        except Exception:
+            pass
+
   """Return GPU temperature using nvidia-smi if available."""
   try:
     output = subprocess.check_output(
@@ -27,6 +69,19 @@ def gpu_temperature() -> str:
 
 @app.get("/system/stats")
 def system_stats():
+    """Expose GPU status, available RAM and training progress."""
+
+    memory = psutil.virtual_memory()
+    data = {
+        "gpu_status": gpu_temperature(),
+        "memory": f"{memory.available / (1024 ** 3):.1f} GB",
+        "training": os.getenv("TRAINING_PROGRESS", "N/A"),
+    }
+    return jsonify(data)
+
+
+if __name__ == "__main__":
+    app.run(port=8001)
   """Expose GPU status, available RAM and training progress."""
   memory = psutil.virtual_memory()
   data = {
@@ -35,8 +90,3 @@ def system_stats():
       "training": os.getenv("TRAINING_PROGRESS", "N/A"),
   }
   return jsonify(data)
-
-
-if __name__ == "__main__":
-  app.run(port=8001)
-
