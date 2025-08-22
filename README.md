@@ -20,6 +20,15 @@ This repository contains the source code for my personal website built with [Jek
    ```
 4. Visit `http://localhost:4000` in your browser to preview changes.
 
+## Environment Stats (optional)
+To display live GPU and memory information on the home page, run the helper API before starting Jekyll:
+
+```bash
+python scripts/env_server.py
+```
+
+The site will request `http://localhost:8001/system/stats` for GPU temperature, available RAM, and training progress. Commit activity is fetched directly from the GitHub API when the page loads.
+
 ## Deployment
 Pushing changes to the `main` branch will trigger GitHub Pages to rebuild and deploy the site at [https://bavalpreet.github.io](https://bavalpreet.github.io).
 
