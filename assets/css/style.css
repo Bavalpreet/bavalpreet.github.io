@@ -144,10 +144,11 @@ nav a:hover::after {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 18px;
+  text-align: center;
   animation: fadeInUp 0.8s ease both;
 }
 
@@ -182,12 +183,6 @@ nav a:hover::after {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 880px) {
-  .hero {
-    grid-template-columns: 1fr;
   }
 }
 
