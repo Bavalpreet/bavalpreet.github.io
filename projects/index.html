@@ -1,0 +1,21 @@
+---
+layout: default
+title: Projects
+---
+
+<section class="card">
+  <h1 class="h1">Projects</h1>
+  <p>A showcase of my data science and AI projects.</p>
+</section>
+
+<div class="grid">
+  {% for project in site.projects %}
+    <div class="card">
+      <h2 class="h2">{{ project.title }}</h2>
+      <p>{{ project.summary }}</p>
+      {% if project.tags %}<p class="mono">{{ project.tags | join: " · " }}</p>{% endif %}
+      {% if project.repo %}<p><a href="{{ project.repo }}" target="_blank">GitHub →</a></p>{% endif %}
+    </div>
+  {% endfor %}
+</div>
+

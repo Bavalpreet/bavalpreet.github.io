@@ -124,3 +124,10 @@ kbd {
   padding: 2px 6px;
 }
 
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.10);
+  transform: translateY(-2px);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
