@@ -65,6 +65,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const activityEl = document.getElementById('activity');
   const trainingEl = document.getElementById('training');
   const blogEl = document.getElementById('blog-count');
+  const resourceCanvas = document.getElementById('resource-chart');
+  let resourceChart = null;
+
+  if (resourceCanvas) {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+    script.onload = () => {
+      const ctx = resourceCanvas.getContext('2d');
+      resourceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            { label: 'GPU %', data: [], borderColor: 'rgb(255,99,132)', tension: 0.25 },
+            { label: 'CPU %', data: [], borderColor: 'rgb(54,162,235)', tension: 0.25 },
+            { label: 'RAM %', data: [], borderColor: 'rgb(75,192,192)', tension: 0.25 }
+          ]
+        },
+        options: {
+          animation: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100
+            }
+          }
+        }
+      });
+      pollSystemStats();
+    };
+    document.head.appendChild(script);
+  }
 
   const loadActivity = async () => {
     if (!activityEl) return;
@@ -88,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const loadSystemStats = async () => {
+  const pollSystemStats = async () => {
     if (!gpuEl || !memoryEl || !trainingEl) return;
     try {
       const res = await fetch('http://localhost:8001/system/stats');
@@ -114,6 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         const cached = localStorage.getItem('training');
         if (cached) trainingEl.textContent = cached;
+      }
+      if (resourceChart && Array.isArray(data.gpu) && Array.isArray(data.cpu) && Array.isArray(data.ram)) {
+        const latestGpu = data.gpu[data.gpu.length - 1] ?? 0;
+        const latestCpu = data.cpu[data.cpu.length - 1] ?? 0;
+        const latestRam = data.ram[data.ram.length - 1] ?? 0;
+        resourceChart.data.labels.push('');
+        resourceChart.data.datasets[0].data.push(latestGpu);
+        resourceChart.data.datasets[1].data.push(latestCpu);
+        resourceChart.data.datasets[2].data.push(latestRam);
+        const maxPoints = 20;
+        if (resourceChart.data.labels.length > maxPoints) {
+          resourceChart.data.labels.shift();
+          resourceChart.data.datasets.forEach((ds) => ds.data.shift());
+        }
+        resourceChart.update();
       }
     } catch (err) {
       const gs = localStorage.getItem('gpu-status');
@@ -147,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   loadActivity();
-  loadSystemStats();
+  pollSystemStats();
   loadBlogCount();
+  setInterval(pollSystemStats, 5000);
 });
