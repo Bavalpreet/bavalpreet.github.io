@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const memoryEl = document.getElementById('memory');
   const activityEl = document.getElementById('activity');
   const trainingEl = document.getElementById('training');
+  const blogEl = document.getElementById('blog-count');
 
   const loadActivity = async () => {
     if (!activityEl) return;
@@ -82,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('activity', activityEl.textContent);
     } catch (err) {
       const cached = localStorage.getItem('activity');
+      activityEl.textContent = cached || '--';
       if (cached) activityEl.textContent = cached;
     }
   };
@@ -115,6 +117,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       const gs = localStorage.getItem('gpu-status');
+      gpuEl.textContent = gs || '--';
+      const mem = localStorage.getItem('memory');
+      memoryEl.textContent = mem || '--';
+      const tr = localStorage.getItem('training');
+      trainingEl.textContent = tr || '--';
+    }
+  };
+
+  const loadBlogCount = async () => {
+    if (!blogEl) return;
+    try {
+      const url = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@bavalpreetsinghh&count=1000';
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('network');
+      const data = await res.json();
+      const count = Array.isArray(data.items) ? data.items.length : 0;
+      blogEl.textContent = `${count} blogs`;
+      localStorage.setItem('blog-count', blogEl.textContent);
+    } catch (err) {
+      const cached = localStorage.getItem('blog-count');
+      blogEl.textContent = cached || '--';
       if (gs && gpuEl) gpuEl.textContent = gs;
       const mem = localStorage.getItem('memory');
       if (mem && memoryEl) memoryEl.textContent = mem;
@@ -125,4 +148,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadActivity();
   loadSystemStats();
+  loadBlogCount();
 });
