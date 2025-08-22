@@ -3,41 +3,18 @@ layout: default
 title: Home
 ---
 {% assign p = site.data.profile %}
-{% assign status = site.data.status %}
 {% assign env = site.data.development %}
 
 <section class="hero card">
   <div>
     <h1 class="h1">{{ p.name }}</h1>
-    <p>{{ p.headline }}</p>
-    <blockquote>"Working with LLMs is awesome but the real challenge comes when we ask 'How do we evaluate the output?'"</blockquote>
+    <p id="headline" data-text="{{ p.headline }}"></p>
+    <blockquote>"LLMs are limitless talkers—I'm here to make their words matter."</blockquote>
     <div class="actions social-links">
       <a href="{{ p.linkedin }}" target="_blank">LinkedIn</a>
       <a href="{{ p.github }}" target="_blank">GitHub</a>
       <a href="{{ p.kaggle }}" target="_blank">Kaggle</a>
       <a href="/resume.pdf" target="_blank">Resume</a>
-    </div>
-  </div>
-</section>
-
-<section class="card">
-  <h2 class="h2">Current Status</h2>
-  <div class="grid stats">
-    <div class="stat">
-      <h3 class="h1">{{ status.impact_kusd }}</h3>
-      <p class="mono">K USD Impact</p>
-    </div>
-    <div class="stat">
-      <h3 class="h1">{{ status.performance_gain_percent }}%</h3>
-      <p class="mono">% Performance Gains</p>
-    </div>
-    <div class="stat">
-      <h3 class="h1">{{ status.engineers_mentored }}</h3>
-      <p class="mono">Engineers Mentored</p>
-    </div>
-    <div class="stat">
-      <h3 class="h1">{{ status.location }}</h3>
-      <p class="mono">Location</p>
     </div>
   </div>
 </section>
