@@ -4,15 +4,13 @@ location: Toronto, Ontario, Canada
 email: scientist.bavalpreet@gmail.com
 linkedin: https://www.linkedin.com/in/bavalpreet-singh
 github: https://github.com/Bavalpreet
-about: Bavalpreet Singh is an AI professional specializing in generative AI, conversational AI, and agentic systems. He leads the development of intelligent, research-backed solutions in the financial and regulatory technology space—helping clients reduce manual effort, streamline workflows, and access trusted, citation-backed insights.
-Previously, he has delivered impactful AI projects for the public sector, published research in Conversational AI and NER, and mentored emerging talent. Recognized among the top 0.1% of ML engineers, his mission is to build AI systems that not only respond—but reason, adapt, and act alongside human experts.
+about: >
+  Bavalpreet Singh is an AI professional specializing in generative AI, conversational AI, and agentic systems. He leads the development of intelligent, research-backed solutions in the financial and regulatory technology space—helping clients reduce manual effort, streamline workflows, and access trusted, citation-backed insights. Previously, he has delivered impactful AI projects for the public sector, published research in Conversational AI and NER, and mentored emerging talent. Recognized among the top 0.1% of ML engineers, his mission is to build AI systems that not only respond—but reason, adapt, and act alongside human experts.
 highlights:
 - "Leading a team to build a Gen+Agentic AI solution for client in RegTech and TaxTech."
-- "Delivered AI chatbots for US local governments \u2192 43% staffing cost reduction\
-  \ & 39% profit increase."
+- "Delivered AI chatbots for US local governments \u2192 43% staffing cost reduction & 39% profit increase."
 - "Trained 1,200+ learners via Intel Digital Readiness \u2192 35% higher tech readiness."
-- "Built multilingual AgriBot for Punjab farmers \u2192 reduced reliance on Kissan\
-  \ call center by 67%."
+- "Built multilingual AgriBot for Punjab farmers \u2192 reduced reliance on Kissan call center by 67%."
 - "Developed NER for Boat industry \u2192 83% entity accuracy."
 - Improved ETL efficiency by 10% using optimized pipelines.
 skills:
@@ -31,21 +29,20 @@ certifications:
 - "AWS Certified Machine Learning \u2013 Specialty (MLS-C01)"
 - Intro to Machine Learning
 - Dataiku ML Practitioner
-- 'Google Cloud Platform Fundamentals: Core Infrastructure'
+- "Google Cloud Platform Fundamentals: Core Infrastructure"
 awards:
 - Employee of the Month
 - Certificate of Appreciation
 - Certificate of Merit
 publications:
-- title: 'DeepSpacy-NER: an efficient deep learning model for named entity recognition
-    for Punjabi language'
-  link: '#'
-- title: Custom NLU components in Rasa 3.x
-  link: '#'
-- title: Providing Suggestions To Users Along With Original Intent Answer
-  link: '#'
-- title: Fallback Policy In Rasa
-  link: '#'
+- title: "DeepSpacy-NER: an efficient deep learning model for named entity recognition for Punjabi language"
+  link: "#"
+- title: "Custom NLU components in Rasa 3.x"
+  link: "#"
+- title: "Providing Suggestions To Users Along With Original Intent Answer"
+  link: "#"
+- title: "Fallback Policy In Rasa"
+  link: "#"
 experience:
 - company: CloudCosmos
   role: Consultant Data Scientist and AI ML Engineer
@@ -62,7 +59,7 @@ experience:
 - company: Jain (Deemed-to-be) University
   role: Visiting Faculty
   date: "Jul 2024 \u2013 Nov 2024"
-  location: ''
+  location: ""
   bullets:
   - Lecturer for Machine Learning and Advanced Machine Learning.
 - company: Sustainable Living Lab (SL2)
@@ -71,34 +68,29 @@ experience:
   location: Singapore
   bullets:
   - Upgraded Intel Digital Readiness courses to include Generative AI.
-  - Designed AI programs for US community colleges; enabled 1,200+ learners; 35% boost
-    in readiness.
+  - Designed AI programs for US community colleges; enabled 1,200+ learners; 35% boost in readiness.
   - Supported 150+ learners in Intel SIP program; +21% employment opportunities.
 - company: Tatras Data
   role: Data Scientist
   date: "Jan 2023 \u2013 Aug 2023"
   location: SAS Nagar, Punjab
   bullets:
-  - 'Led AI chatbots for US local government: 43% staffing reduction; 39% profit increase.'
+  - "Led AI chatbots for US local government: 43% staffing reduction; 39% profit increase."
 - company: Tatras Data
   role: Jr. Data Scientist
   date: "Jul 2020 \u2013 Jan 2023"
   location: Delhi, India
   bullets:
-  - 'Led conversational AI for farmers (Punjabi/English): 67% lower reliance on Kissan
-    call center.'
+  - "Led conversational AI for farmers (Punjabi/English): 67% lower reliance on Kissan call center."
   - "RASA chatbot for IDP (India Data Portal) \u2192 21% training cost savings."
-  - Built summarization & keyphrase extraction; 10% ETL efficiency gain for public-sector
-    market data.
-  - "Custom NER for Boat industry \u2192 83% accuracy; web scraping with BeautifulSoup/Selenium;\
-    \ data annotation with Doccano."
+  - Built summarization & keyphrase extraction; 10% ETL efficiency gain for public-sector market data.
+  - "Custom NER for Boat industry \u2192 83% accuracy; web scraping with BeautifulSoup/Selenium; data annotation with Doccano."
 - company: Sabudh Foundation
   role: Line Manager
   date: "Jan 2022 \u2013 Jun 2023"
   location: SAS Nagar, Punjab
   bullets:
-  - Led AgriBot development using PAU Package of Practices; multilingual support for
-    Punjabi farmers.
+  - Led AgriBot development using PAU Package of Practices; multilingual support for Punjabi farmers.
 - company: Sabudh Foundation
   role: Data Science Faculty
   date: "Jul 2020 \u2013 Jan 2021"
@@ -108,7 +100,7 @@ experience:
 - company: BML Munjal University
   role: Visiting Faculty
   date: "Jul 2020 \u2013 Dec 2020"
-  location: ''
+  location: ""
   bullets:
   - Instructor for Basics of ML; guided student passion projects.
 - company: Sabudh Foundation
