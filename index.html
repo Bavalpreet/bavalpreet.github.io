@@ -21,29 +21,28 @@ title: Home
 
 <section class="card">
   <h2 class="h2">Development Environment</h2>
-  <div class="grid stats">
-    <div class="stat">
-      <h3 class="h1" id="gpu-status">{{ env.gpu_status }}</h3>
-      <p class="mono">GPU Status</p>
+    <div class="grid stats">
+      <div class="stat">
+        <h3 class="h1" id="gpu-util">{{ env.gpu_util }}</h3>
+        <p class="mono">GPU Utilization</p>
+      </div>
+      <div class="stat">
+        <h3 class="h1" id="ram-util">{{ env.ram_util }}</h3>
+        <p class="mono">RAM Utilization</p>
+      </div>
+      <div class="stat">
+        <h3 class="h1" id="activity">{{ env.activity }}</h3>
+        <p class="mono">Last 24h</p>
+      </div>
+      <div class="stat">
+        <h3 class="h1" id="training">{{ env.training }}</h3>
+        <p class="mono">Current Project</p>
+      </div>
+      <div class="stat">
+        <h3 class="h1" id="blog-count">{{ env.blogs }}</h3>
+        <p class="mono">Blogs</p>
+      </div>
     </div>
-    <div class="stat">
-      <h3 class="h1" id="memory">{{ env.memory }}</h3>
-      <p class="mono">System RAM</p>
-    </div>
-    <div class="stat">
-      <h3 class="h1" id="activity">{{ env.activity }}</h3>
-      <p class="mono">Last 24h</p>
-    </div>
-    <div class="stat">
-      <h3 class="h1" id="training">{{ env.training }}</h3>
-      <p class="mono">Current Project</p>
-    </div>
-    <div class="stat">
-      <h3 class="h1" id="blog-count">{{ env.blogs }}</h3>
-      <p class="mono">Blogs</p>
-    </div>
-  </div>
-  <canvas id="resource-chart"></canvas>
 </section>
 
 <section class="card">

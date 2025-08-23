@@ -1,5 +1,5 @@
-gpu_status: "--"
-memory: "--"
+gpu_util: "--"
+ram_util: "--"
 activity: "--"
 training: "--"
 blogs: "--"
