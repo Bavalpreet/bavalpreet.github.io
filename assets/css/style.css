@@ -7,6 +7,7 @@
   --accent-gradient: linear-gradient(135deg, #ff5722, #ff9800);
   --border: #e5e7eb;
   --badge-bg: #f3f4f6;
+  --code-bg: #f3f4f6;
 }
 
 .dark {
@@ -18,6 +19,7 @@
   --accent-gradient: linear-gradient(135deg, #ff5722, #ff9800);
   --border: #374151;
   --badge-bg: #1f2937;
+  --code-bg: #1f2937;
 }
 
 html {
@@ -139,6 +141,21 @@ nav a:hover::after {
 }
 
 .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+pre code {
+  display: block;
+}
+
+code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
