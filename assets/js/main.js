@@ -119,13 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const loadSystemStats = async () => {
-      if (cached) activityEl.textContent = cached;
-    }
-  };
-
   const pollSystemStats = async () => {
-
     if (!gpuEl || !memoryEl || !trainingEl) return;
     try {
       const res = await fetch('http://localhost:8001/system/stats');
@@ -180,9 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadBlogCount = async () => {
     if (!blogEl) return;
     try {
-
-      const feed = encodeURIComponent('https://medium.com/feed/@bavalpreetsinghh');
-      const url = `https://api.rss2json.com/v1/api.json?rss_url=${feed}&count=1000`;
       const url = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@bavalpreetsinghh&count=1000';
       const res = await fetch(url);
       if (!res.ok) throw new Error('network');
@@ -193,24 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       const cached = localStorage.getItem('blog-count');
       blogEl.textContent = cached || '--';
-      blogEl.textContent = `${count} blogs`;
-      localStorage.setItem('blog-count', blogEl.textContent);
-    } catch (err) {
-      const cached = localStorage.getItem('blog-count');
-      blogEl.textContent = cached || '--';
-      if (gs && gpuEl) gpuEl.textContent = gs;
-      const mem = localStorage.getItem('memory');
-      if (mem && memoryEl) memoryEl.textContent = mem;
-      const tr = localStorage.getItem('training');
-      if (tr && trainingEl) trainingEl.textContent = tr;
-
     }
   };
 
   loadActivity();
-  loadSystemStats();
-  loadBlogCount();
   pollSystemStats();
   loadBlogCount();
   setInterval(pollSystemStats, 5000);
 });
+
