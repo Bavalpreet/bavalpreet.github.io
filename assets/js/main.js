@@ -60,10 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Live development environment stats
-  const gpuEl = document.getElementById('gpu-util');
-  const ramEl = document.getElementById('ram-util');
   const activityEl = document.getElementById('activity');
-  const trainingEl = document.getElementById('training');
   const blogEl = document.getElementById('blog-count');
 
   const loadActivity = async () => {
@@ -87,48 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const pollSystemStats = async () => {
-    if (!gpuEl || !ramEl || !trainingEl) return;
-    try {
-      const res = await fetch('http://localhost:8001/system/stats');
-      if (!res.ok) throw new Error('network');
-      const data = await res.json();
-
-      if (typeof data.gpu_util === 'number') {
-        const gpuText = `${data.gpu_util.toFixed(0)}%`;
-        gpuEl.textContent = gpuText;
-        localStorage.setItem('gpu-util', gpuText);
-      } else {
-        const cached = localStorage.getItem('gpu-util');
-        if (cached) gpuEl.textContent = cached;
-      }
-
-      if (typeof data.ram_util === 'number') {
-        const ramText = `${data.ram_util.toFixed(0)}%`;
-        ramEl.textContent = ramText;
-        localStorage.setItem('ram-util', ramText);
-      } else {
-        const cached = localStorage.getItem('ram-util');
-        if (cached) ramEl.textContent = cached;
-      }
-
-      if (data.training) {
-        trainingEl.textContent = data.training;
-        localStorage.setItem('training', data.training);
-      } else {
-        const cached = localStorage.getItem('training');
-        if (cached) trainingEl.textContent = cached;
-      }
-    } catch (err) {
-      const gpuCached = localStorage.getItem('gpu-util');
-      gpuEl.textContent = gpuCached || '--';
-      const ramCached = localStorage.getItem('ram-util');
-      ramEl.textContent = ramCached || '--';
-      const tr = localStorage.getItem('training');
-      trainingEl.textContent = tr || '--';
-    }
-  };
-
   const loadBlogCount = async () => {
     if (!blogEl) return;
     try {
@@ -146,8 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   loadActivity();
-  pollSystemStats();
   loadBlogCount();
-  setInterval(pollSystemStats, 5000);
 });
 
