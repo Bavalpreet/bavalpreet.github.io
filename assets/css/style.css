@@ -3,8 +3,8 @@
   --card: #ffffff;
   --text: #1f2937;
   --muted: #6b7280;
-  --accent: #6366f1;
-  --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
+  --accent: #ff5722;
+  --accent-gradient: linear-gradient(135deg, #ff5722, #ff9800);
   --border: #e5e7eb;
   --badge-bg: #f3f4f6;
 }
@@ -14,8 +14,8 @@
   --card: #111827;
   --text: #f9fafb;
   --muted: #9ca3af;
-  --accent: #6366f1;
-  --accent-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
+  --accent: #ff5722;
+  --accent-gradient: linear-gradient(135deg, #ff5722, #ff9800);
   --border: #374151;
   --badge-bg: #1f2937;
 }
