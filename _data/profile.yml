@@ -125,15 +125,37 @@ education:
   program: B.Tech, Computer Science and Engineering
   date: "2016 \u2013 2020"
 volunteer:
-- company: Data Science for All
+- company: OpenSource Connections
   role: Mentor
-  date: "2022 \u2013 Present"
-  location: Remote
-  bullets:
-  - Support aspiring data scientists through project mentorship.
-- company: Local Community Hackathon
-  role: Volunteer
-  date: "2021 \u2013 2022"
-  location: Toronto, ON
-  bullets:
-  - Organized AI workshops for community participants.
+  date: "Apr 2025 \u2013 Present"
+  logo: https://avatars.githubusercontent.com/u/1776596?v=4
+  bullets: []
+- company: Map the System Canada
+  role: Mentor
+  date: "Feb 2025 \u2013 Present"
+  logo: https://avatars.githubusercontent.com/u/63322516?v=4
+  bullets: []
+- company: Kaggle
+  role: Advisor
+  date: "Aug 2024 \u2013 Feb 2025"
+  logo: https://avatars.githubusercontent.com/u/1336944?v=4
+  bullets: []
+- company: Sikheya Institute
+  role: "Artificial Intelligence \u2013 Domain Guide"
+  date: "Aug 2024 \u2013 Apr 2025"
+  bullets: []
+- company: Humber International Graduate School (IGS)
+  role: Data Analytics Mentor
+  date: "Jan 2024 \u2013 Mar 2025"
+  logo: https://avatars.githubusercontent.com/u/25174995?v=4
+  bullets: []
+- company: Sabudh Foundation
+  role: Senior Mentor
+  date: "Jan 2023 \u2013 Aug 2023"
+  logo: https://avatars.githubusercontent.com/u/129847691?v=4
+  bullets: []
+- company: Sabudh Foundation
+  role: Mentor
+  date: "Jul 2020 \u2013 Jan 2023"
+  logo: https://avatars.githubusercontent.com/u/129847691?v=4
+  bullets: []
