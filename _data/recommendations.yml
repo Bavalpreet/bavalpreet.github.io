@@ -1,5 +1,180 @@
-- author: Jane Doe
-  role: Senior Colleague
-  date: Jan 2025
+# List of professional recommendations displayed on the recommendations page.
+# Each entry contains the author's name, their relationship to Bavalpreet,
+# an optional URL to their profile, and the full recommendation text.
+
+- author: Atul Tripathi
+  role: Managed Bavalpreet directly
+  url: https://www.linkedin.com/in/atul-tripathi-51438a12
   text: >-
-    Bavalpreet's expertise and dedication made a significant impact on our project.
+    Bavalpreet upholds excellent professionalism and is deeply committed to his
+    job, which was evident in his work. The highlight of his work has been his
+    meticulous approach with complete detailed documentation. Bavalpreet
+    possesses the ability to conceive new ideas and communicate those ideas well.
+    He takes complete responsibility towards the work allocated. At multiple
+    times he has demonstrated his capabilities to explore different options for
+    dissolving the bottleneck on the projects. The solution-driven approach
+    towards solving challenges faced during the projects makes me extremely
+    confident in his creativity and business acumen for optimising operational
+    flows.
+
+- author: Alexandria Cottingham
+  role: Worked with Bavalpreet at different companies
+  url: https://www.linkedin.com/in/alcottingham
+  text: >-
+    I had the pleasure of working with Baval on an AI chatbot project. He was
+    the lead data scientist on a small team we'd contracted for support and we
+    worked closely together for a little over a year. First, I cannot express how
+    much of a pleasure it is to simply know Baval. He is extremely kind, patient,
+    and always has a great attitude. This was important to our time working
+    together because he often had to communicate very technical information to
+    myself and other stakeholders who didn't have the same knowledge and
+    understanding that another data scientist or developer would have. I
+    appreciate his ability to not only break down complex ideas, but to ask
+    insightful questions in return as well. Baval was able to use his Machine
+    Learning and AI expertise and knowledge to advance our chatbot in deeply
+    impactful ways. He implemented RASA for our automated chatbot, which was
+    something we struggled to accomplish internally for several months. This
+    implementation was a huge development on the conversational aspect of our
+    bot, as we were able to more accurately respond to certain inquiries and
+    train it even with more complex utterances than we had in the past. In
+    additional to his technical communication skills, Baval was very dependable
+    and timely with project deliverables. And despite working in vastly different
+    time zones, I knew that he would be available and show up for our stand up
+    calls. He would often surprise me with his dedication to our project as well,
+    as there were times when I would assume given his time zone he would be
+    sleeping or clocked out, but I would sometimes find him online or receive a
+    question or small update posted in JIRA or Slack from him. Thank you Baval
+    for your incredible work and for being simply and incredible person to know!
+    Wishing you all the best.
+
+- author: Lovepreet Singh
+  role: Reported directly to Bavalpreet
+  url: https://www.linkedin.com/in/lovepreet--singh
+  text: >-
+    I am delighted to write a recommendation for Bavalpreet Singh, my former
+    Tech Manager. During our time working together, Bavalpreet exhibited
+    exceptional leadership and mentorship qualities that significantly impacted
+    my growth as a professional. Bavalpreet continuously showed an amazing degree
+    of proficiency in the field of data science during his tenure as my tech
+    manager. His advice and encouragement were crucial in assisting me in
+    successfully managing my project. He has a wonderful talent for breaking down
+    difficult work into doable chunks, which helps me stay on target and produce
+    results quickly. Bavalpreet stands out for genuinely caring about the team
+    members' performance. He took the time to get to know my best qualities and
+    my areas for growth, giving me insightful criticism and constructive feedback
+    that helped me advance my abilities over time. His mentoring approach is both
+    supportive and demanding, which created an atmosphere where I felt inspired
+    to do well and go beyond my comfort zone. I am grateful for Bavalpreet's
+    advice and support, and I can say with certainty that he was a key factor in
+    my professional development. He stands out as a professional in the data
+    science industry thanks to his leadership abilities as well as their
+    technical proficiency. To anyone looking for a mentor or leader who can bring
+    out the best in their team members and produce remarkable outcomes, I
+    heartily recommend Bavalpreet. He is a valuable asset to any company and a
+    joy to deal with.
+
+- author: Nasib
+  role: Worked on the same team
+  url: https://www.linkedin.com/in/nasib-50a6a932
+  text: >-
+    I am delighted to recommend Bavalpreet Singh for his outstanding
+    contributions and exceptional performance as a key member of our Citibot
+    Version 1 team. Bavalpreet's problem-solving skills and remarkable client
+    handling abilities have consistently impressed both our team and our
+    clients, resulting in substantial profits for our esteemed clients.
+    Throughout our collaboration, Bavalpreet consistently demonstrated a unique
+    blend of technical expertise, creativity, and dedication. He has an innate
+    ability to dissect complex problems, identify innovative solutions, and
+    implement them with precision. His critical thinking and analytical prowess
+    have been instrumental in overcoming various challenges and ensuring the
+    success of our projects. One of Bavalpreet's greatest strengths is his
+    exceptional client handling. His approachable demeanor, active listening
+    skills, and genuine interest in understanding clients' needs have fostered
+    strong and trust-based relationships. Bavalpreet consistently goes above and
+    beyond to exceed client expectations, which has undoubtedly been a driving
+    force behind the impressive profits our clients have experienced. Furthermore,
+    Bavalpreet is a fantastic team player and a natural leader. He takes
+    initiative in mentoring and guiding his peers, always willing to share his
+    knowledge and expertise. His positive attitude and strong work ethic have
+    created a motivating work environment, inspiring others to perform at their
+    best. I wholeheartedly recommend Bavalpreet Singh for any endeavor he chooses
+    to pursue. He will undoubtedly bring his trademark dedication, proficiency,
+    and positive attitude to any team, contributing to their success as he has
+    done with ours. It has been a privilege to work alongside Bavalpreet, and I
+    have no doubt that he will continue to achieve remarkable feats in his
+    career.
+
+- author: Parthosarothi Mukherjee
+  role: Managed Bavalpreet directly
+  url: https://www.linkedin.com/in/parthosarothi-mukherjee-a67a5866
+  text: >-
+    I have worked with Bavalpreet in multiple projects. His data science
+    capabilities are very precise, organised and robust. He is also very keen to
+    improve his skill in new technologies in machine learning and data science.
+    Bavalpreet is innovative and possesses a comprehensive coding skill required
+    for end to end development.
+
+- author: Deepak Singh
+  role: Worked on the same team
+  url: https://www.linkedin.com/in/deepak-singhh-10528b141
+  text: >-
+    I worked with Baval. He is enthusiastic for data science and fantastic in
+    his work. He is a great team player and solves problem very quickly.
+
+- author: Charu Verma
+  role: Worked on the same team
+  url: https://www.linkedin.com/in/charu-verma-87a902151
+  text: >-
+    A great learner and mentor, worked with him at Sabudh Foundation. It was a
+    pleasure to work with such an enthusiastic mind.
+
+- author: Navdeep Singh
+  role: Was Bavalpreet's teacher
+  url: https://www.linkedin.com/in/navdeep-singh-62b55990
+  text: >-
+    Having had the privilege of being Bavalpreet's professor and collaborator, I
+    can confidently say that he is an exceptionally talented and dedicated
+    individual. Bavalpreet has consistently demonstrated a deep passion for
+    research and an unwavering commitment to excellence throughout his academic
+    journey. One notable achievement is our joint publication, ‘An efficient
+    deep learning model for named entity recognition for Punjabi language.’
+    Bavalpreet played a pivotal role in this research endeavor, showcasing his
+    expertise in both Punjabi language processing and deep learning techniques.
+    His meticulousness and attention to detail contributed significantly to the
+    success of our project. Bavalpreet demonstrated a deep understanding of the
+    subject matter and exhibited exceptional programming skills in developing the
+    efficient deep learning model for named entity recognition. Beyond his
+    research capabilities, Bavalpreet exhibits remarkable interpersonal skills
+    and is an excellent team player. He actively engages in discussions, listens
+    attentively to others' ideas, and provides valuable insights and constructive
+    feedback. Wish him all the best !
+
+- author: Saagar Singh Sachdev
+  role: Managed Bavalpreet directly
+  url: https://www.linkedin.com/in/saagar-s-sachdev
+  text: >-
+    Bavalpreet is a dedicated, hard-working individual who always strives to go
+    above and beyond what is expected of him. I am confident that he will excel
+    in anything he chooses. From my perspective as a Project Manager on multiple
+    projects with Bavalpreet, I can attest that he has been an instrumental
+    ‘translator’ of issues from a technical to a business perspective and has
+    been key in offering tailored solutions for clients. He demonstrated his
+    expertise in various domains of data science, conversational AI, natural
+    language processing (NLP), and computer vision. He has worked on various
+    problems like classification, regression, paraphrasing, etc. He has a strong
+    foundation in programming languages such as Python and databases such as SQL
+    and MongoDB. During his tenure at our company, he works on several projects
+    that showcased his exceptional analytical skills and problem-solving
+    abilities. One of his significant achievements was developing a conversational
+    AI chatbot for various local governments using AWS LEX and RASA. He also
+    built a multilingual conversational AI bot that covers different crops
+    cultivated on multiple farmlands. Additionally, he has experience in
+    scraping data using BeautifulSoup and Selenium and building named entity
+    recognition (NER) systems for boat companies. As a mentor, he built an image
+    segmentation model for road scene analysis and performed exploratory data
+    analysis of New York City for a client’s sales department. He has also
+    authored several research publications and blogs, including an efficient
+    deep-learning model for named entity recognition for the Punjabi language. I
+    highly recommend Bavalpreet Singh for any future work or educational projects
+    that he will undertake!
+
