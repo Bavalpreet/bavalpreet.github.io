@@ -8,12 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <button id="nav-toggle" class="menu-toggle" aria-label="Toggle navigation">☰</button>
+      <button id="nav-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
       <nav id="site-nav">
         <a href="{{ '/' | relative_url }}">Home</a>
         <a href="{{ '/experience/' | relative_url }}">Experience</a>

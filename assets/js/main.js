@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const siteNav = document.getElementById('site-nav');
   if (navToggle && siteNav) {
     navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
       siteNav.classList.toggle('open');
     });
   }
