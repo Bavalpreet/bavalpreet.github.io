@@ -135,5 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadCommitStats();
   loadBlogCount();
+
+  // Refresh stats periodically to keep figures up to date
+  setInterval(loadCommitStats, 5 * 60 * 1000);
+  setInterval(loadBlogCount, 60 * 60 * 1000);
 });
 
