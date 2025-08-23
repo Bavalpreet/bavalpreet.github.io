@@ -8,15 +8,12 @@ import shutil
 import subprocess
 from typing import List
 
-
-
 app = Flask(__name__)
 
 
 def gpu_temperature() -> str:
     """Return a best-effort GPU temperature for the current machine."""
 
-    # Prefer NVIDIA GPUs when nvidia-smi is available
     if shutil.which("nvidia-smi"):
         try:
             output = subprocess.check_output(
@@ -31,7 +28,6 @@ def gpu_temperature() -> str:
         except Exception:
             pass
 
-    # Try psutil's sensor API (may provide CPU temp on some systems)
     try:
         temps = psutil.sensors_temperatures()
         for entries in temps.values():
@@ -40,7 +36,6 @@ def gpu_temperature() -> str:
     except Exception:
         pass
 
-    # Attempt macOS powermetrics for Apple Silicon machines
     if platform.system() == "Darwin" and shutil.which("powermetrics"):
         try:
             output = subprocess.check_output(
@@ -56,11 +51,7 @@ def gpu_temperature() -> str:
 
     return "N/A"
 
-@app.get("/system/stats")
-def system_stats():
-    """Expose GPU status, available RAM and training progress."""
 
-    memory = psutil.virtual_memory()
 def gpu_percent() -> float:
     """Return GPU utilization percentage if available."""
 
@@ -117,4 +108,3 @@ def system_stats():
 
 if __name__ == "__main__":
     app.run(port=8001)
-
