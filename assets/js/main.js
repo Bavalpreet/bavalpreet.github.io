@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(card);
   });
 
-  // Live development environment stats
+  // Live recent activity stats
   const commitCountEl = document.getElementById('commit-count');
   const commitLabelEl = document.getElementById('commit-label');
   const blogEl = document.getElementById('blog-count');
