@@ -60,43 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Live development environment stats
-  const gpuEl = document.getElementById('gpu-status');
-  const memoryEl = document.getElementById('memory');
+  const gpuEl = document.getElementById('gpu-util');
+  const ramEl = document.getElementById('ram-util');
   const activityEl = document.getElementById('activity');
   const trainingEl = document.getElementById('training');
   const blogEl = document.getElementById('blog-count');
-  const resourceCanvas = document.getElementById('resource-chart');
-  let resourceChart = null;
-
-  if (resourceCanvas) {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-    script.onload = () => {
-      const ctx = resourceCanvas.getContext('2d');
-      resourceChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: [],
-          datasets: [
-            { label: 'GPU %', data: [], borderColor: 'rgb(255,99,132)', tension: 0.25 },
-            { label: 'CPU %', data: [], borderColor: 'rgb(54,162,235)', tension: 0.25 },
-            { label: 'RAM %', data: [], borderColor: 'rgb(75,192,192)', tension: 0.25 }
-          ]
-        },
-        options: {
-          animation: false,
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100
-            }
-          }
-        }
-      });
-      pollSystemStats();
-    };
-    document.head.appendChild(script);
-  }
 
   const loadActivity = async () => {
     if (!activityEl) return;
@@ -120,25 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const pollSystemStats = async () => {
-    if (!gpuEl || !memoryEl || !trainingEl) return;
+    if (!gpuEl || !ramEl || !trainingEl) return;
     try {
       const res = await fetch('http://localhost:8001/system/stats');
       if (!res.ok) throw new Error('network');
       const data = await res.json();
-      if (data.gpu_status) {
-        gpuEl.textContent = data.gpu_status;
-        localStorage.setItem('gpu-status', data.gpu_status);
+
+      if (typeof data.gpu_util === 'number') {
+        const gpuText = `${data.gpu_util.toFixed(0)}%`;
+        gpuEl.textContent = gpuText;
+        localStorage.setItem('gpu-util', gpuText);
       } else {
-        const cached = localStorage.getItem('gpu-status');
+        const cached = localStorage.getItem('gpu-util');
         if (cached) gpuEl.textContent = cached;
       }
-      if (data.memory) {
-        memoryEl.textContent = data.memory;
-        localStorage.setItem('memory', data.memory);
+
+      if (typeof data.ram_util === 'number') {
+        const ramText = `${data.ram_util.toFixed(0)}%`;
+        ramEl.textContent = ramText;
+        localStorage.setItem('ram-util', ramText);
       } else {
-        const cached = localStorage.getItem('memory');
-        if (cached) memoryEl.textContent = cached;
+        const cached = localStorage.getItem('ram-util');
+        if (cached) ramEl.textContent = cached;
       }
+
       if (data.training) {
         trainingEl.textContent = data.training;
         localStorage.setItem('training', data.training);
@@ -146,26 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const cached = localStorage.getItem('training');
         if (cached) trainingEl.textContent = cached;
       }
-      if (resourceChart && Array.isArray(data.gpu) && Array.isArray(data.cpu) && Array.isArray(data.ram)) {
-        const latestGpu = data.gpu[data.gpu.length - 1] ?? 0;
-        const latestCpu = data.cpu[data.cpu.length - 1] ?? 0;
-        const latestRam = data.ram[data.ram.length - 1] ?? 0;
-        resourceChart.data.labels.push('');
-        resourceChart.data.datasets[0].data.push(latestGpu);
-        resourceChart.data.datasets[1].data.push(latestCpu);
-        resourceChart.data.datasets[2].data.push(latestRam);
-        const maxPoints = 20;
-        if (resourceChart.data.labels.length > maxPoints) {
-          resourceChart.data.labels.shift();
-          resourceChart.data.datasets.forEach((ds) => ds.data.shift());
-        }
-        resourceChart.update();
-      }
     } catch (err) {
-      const gs = localStorage.getItem('gpu-status');
-      gpuEl.textContent = gs || '--';
-      const mem = localStorage.getItem('memory');
-      memoryEl.textContent = mem || '--';
+      const gpuCached = localStorage.getItem('gpu-util');
+      gpuEl.textContent = gpuCached || '--';
+      const ramCached = localStorage.getItem('ram-util');
+      ramEl.textContent = ramCached || '--';
       const tr = localStorage.getItem('training');
       trainingEl.textContent = tr || '--';
     }
