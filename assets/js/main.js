@@ -141,5 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Refresh stats periodically to keep figures up to date
   setInterval(loadCommitStats, 5 * 60 * 1000);
   setInterval(loadBlogCount, 60 * 60 * 1000);
+
+  // Syntax highlighting
+  if (window.hljs) {
+    hljs.highlightAll();
+  }
 });
 
