@@ -282,6 +282,19 @@ kbd {
   border: 1px solid var(--border);
 }
 
+/* Volunteer logos */
+.volunteer-header {
+  display: flex;
+  align-items: center;
+}
+
+.volunteer-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 12px;
+}
+
 /* Mobile navigation */
 .menu-toggle {
   display: none;
