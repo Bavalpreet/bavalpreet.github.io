@@ -60,27 +60,60 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Live development environment stats
-  const activityEl = document.getElementById('activity');
+  const commitCountEl = document.getElementById('commit-count');
+  const commitLabelEl = document.getElementById('commit-label');
   const blogEl = document.getElementById('blog-count');
 
-  const loadActivity = async () => {
-    if (!activityEl) return;
+  const flapCommitStats = (total, last24) => {
+    if (!commitCountEl || !commitLabelEl) return;
+    const states = [
+      { count: total, label: 'Total commits' },
+      { count: last24, label: 'Commits last 24h' }
+    ];
+    let i = 0;
+    const render = () => {
+      const s = states[i];
+      commitCountEl.textContent = s.count;
+      commitLabelEl.textContent = s.label;
+      i = (i + 1) % states.length;
+    };
+    render();
+    setInterval(render, 3000);
+  };
+
+  const loadCommitStats = async () => {
+    if (!commitCountEl || !commitLabelEl) return;
     try {
-      const res = await fetch('https://api.github.com/users/bavalpreet/events');
-      if (!res.ok) throw new Error('network');
-      const events = await res.json();
+      const eventsRes = await fetch('https://api.github.com/users/bavalpreet/events');
+      if (!eventsRes.ok) throw new Error('network');
+      const events = await eventsRes.json();
       const cutoff = Date.now() - 24 * 60 * 60 * 1000;
-      let commits = 0;
+      let last24 = 0;
       for (const ev of events) {
         if (ev.type === 'PushEvent' && new Date(ev.created_at).getTime() > cutoff) {
-          commits += ev.payload.commits.length;
+          last24 += ev.payload.commits.length;
         }
       }
-      activityEl.textContent = `${commits} commits`;
-      localStorage.setItem('activity', activityEl.textContent);
+
+      let total = 0;
+      const totalRes = await fetch('https://api.github.com/search/commits?q=author:bavalpreet', {
+        headers: { Accept: 'application/vnd.github.cloak-preview' }
+      });
+      if (totalRes.ok) {
+        const totalData = await totalRes.json();
+        total = totalData.total_count || 0;
+      }
+
+      flapCommitStats(total, last24);
+      localStorage.setItem('commit-stats', JSON.stringify({ total, last24 }));
     } catch (err) {
-      const cached = localStorage.getItem('activity');
-      activityEl.textContent = cached || '--';
+      const cached = localStorage.getItem('commit-stats');
+      if (cached) {
+        const { total = 0, last24 = 0 } = JSON.parse(cached);
+        flapCommitStats(total, last24);
+      } else {
+        flapCommitStats(0, 0);
+      }
     }
   };
 
@@ -96,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('blog-count', count);
     } catch (err) {
       const cached = localStorage.getItem('blog-count');
-      blogEl.textContent = cached || '--';
+      blogEl.textContent = cached || '0';
     }
   };
 
-  loadActivity();
+  loadCommitStats();
   loadBlogCount();
 });
 
