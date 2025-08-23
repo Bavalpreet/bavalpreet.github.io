@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} — {{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,25 +13,32 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header">
-      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <button id="nav-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
-      <nav id="site-nav">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/experience/' | relative_url }}">Experience</a>
-        <a href="{{ '/publications/' | relative_url }}">Publications</a>
-        <a href="{{ '/recommendations/' | relative_url }}">Recommendations</a>
-        <a href="{{ '/volunteer/' | relative_url }}">Volunteer</a>
-        <a href="{{ '/blogs.html' | relative_url }}">Blogs</a>
-        <button id="theme-toggle" class="toggle" aria-label="Toggle dark mode">🌙</button>
-      </nav>
+      <div class="container">
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <button id="nav-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
+        <nav id="site-nav" class="site-nav">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/experience/' | relative_url }}">Experience</a>
+          <a href="{{ '/publications/' | relative_url }}">Publications</a>
+          <a href="{{ '/recommendations/' | relative_url }}">Recommendations</a>
+          <a href="{{ '/volunteer/' | relative_url }}">Volunteer</a>
+          <a href="{{ '/blogs.html' | relative_url }}">Blogs</a>
+          <button id="theme-toggle" class="toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
     </header>
-    <main class="container">
+
+    <main id="main" class="container">
       {{ content }}
     </main>
+
     <footer class="site-footer">
-      <p>© {{ "now" | date: "%Y" }} {{ site.title }}</p>
+      <div class="container">© {{ "now" | date: "%Y" }} {{ site.title }}</div>
     </footer>
+
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   </body>
 </html>
